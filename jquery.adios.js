@@ -1,6 +1,6 @@
 /*
  * Adios jQuery plugin
- * http://github.com/averyvery/Adios
+ * http://github.com/averyvery/jquery.adios
  *
  * Copyright (c) 2012 Doug Avery
  * Dual licensed under the MIT and GPL licenses.
