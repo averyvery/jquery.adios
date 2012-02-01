@@ -181,6 +181,12 @@
 
 /* @group contents */
 
+	.jqueryadios_title,
+	.jqueryadios_button,
+	.jqueryadios_message {
+		opacity: 0.99 !important;
+	}
+
 	.jqueryadios_title {
 		line-height: 22px !important;
 		margin: 8px 0 8px !important;
