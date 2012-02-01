@@ -1,0 +1,227 @@
+/* @group base */
+
+	.jqueryadios_shade {
+
+		/* standard properties */
+		background: #212121;
+		color: #fff;
+		display: none;
+		font-family: Helvetica, Arial, sans-serif;
+		height: 100%;
+		left: 0;
+		top: 0;
+		width: 100%;
+		z-index: 1000;
+
+		/* vendor properties */
+		background: -webkit-gradient(radial, center center, 0, center center, 300, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.8)), color-stop(50%, rgba(0,0,0,0.75)));
+		background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.8) 99%);
+		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0.5)), color-stop(50%,rgba(0,0,0,0.75)), color-stop(99%,rgba(0,0,0,0.8)));
+		background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.75) 50%,rgba(0,0,0,0.8) 99%);
+		background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.75) 50%,rgba(0,0,0,0.8) 99%);
+		background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.75) 50%,rgba(0,0,0,0.8) 99%);
+		background: radial-gradient(center, ellipse cover, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.75) 50%,rgba(0,0,0,0.8) 99%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(0,0,0,0.5)', endColorstr='rgba(0,0,0,0.75)',GradientType=1 );
+
+	}
+
+	.jqueryadios_shine {
+
+		/* standard properties */
+		background: rgba(255,255,255,0.17);
+		display: block;
+		height: 250px;
+		left: -5%;
+		position: absolute;
+		top: -140px;
+		width: 110%;
+
+		/* vendor properties */
+		background: -webkit-linear-gradient(top, rgba(255,255,255,0.4), rgba(255,255,255,0.15));
+		background: -moz-linear-gradient(top, rgba(255,255,255,0.4), rgba(255,255,255,0.15));
+		background: linear-gradient(top, rgba(255,255,255,0.4), rgba(255,255,255,0.15));
+		-webkit-border-radius: 250px;
+		-moz-border-radius: 250px;
+		border-radius: 250px;
+
+		-moz-transform: scaleY(0.35) scaleX(1.4);
+		-webkit-transform: scaleY(0.35) scaleX(1.4);
+		transform: scaleY(0.35) scaleX(1.4);
+
+	}
+
+	.jqueryadios_box {
+
+		/* standard properties */
+		background: #0b1b44;
+		background: rgba(11,27,68,0.8);
+		border: 2px solid #b9bcc5;
+		color: #fff;
+		font-family: Helvetica, Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		font-size: 16px;
+		margin: 0 25px;
+		max-width: 270px;
+		overflow: hidden;
+		position: relative;
+		text-shadow: 0px -1px 0px #000;
+		text-align: center;
+		top: 50%;
+		padding: 5px;
+
+		/* vendor properties */
+		-moz-box-shadow: 
+			0px 0px 0px 1px rgba(0,0,0,0.8), 
+			0px 2px 2px 1px rgba(0,0,0,0.3); 
+		-webkit-box-shadow: 
+			0px 0px 0px 1px rgba(0,0,0,0.8), 
+			0px 2px 2px 1px rgba(0,0,0,0.3); 
+		box-shadow: 
+			0px 0px 0px 1px rgba(0,0,0,0.8), 
+			0px 2px 2px 1px rgba(0,0,0,0.3); 
+
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+		
+	}
+
+	@-webkit-keyframes bounce {
+	 0% {
+		 -webkit-transform: scale(0.85);
+	 }
+	 25% {
+		 -webkit-transform: scale(1.1);
+	 }
+	 50% {
+		 -webkit-transform: scale(0.95);
+	 }
+	 75% {
+		 -webkit-transform: scale(1.02);
+	 
+	 }
+	 100% {
+		 -webkit-transform: scale(1);
+	 }
+	}
+		
+	.jqueryadios_box_bounce {
+		-webkit-transform: translateZ(0);
+		-webkit-animation-name: bounce;
+		-webkit-animation-duration: 0.35s;
+		-webkit-animation-iteration-count: 1;
+	}
+
+	.jqueryadios_contents {
+		font-size: 16px;
+		padding: 10px 20px 20px;
+		-webkit-font-smoothing: auto;
+		text-align: center;
+	}
+
+/* @end */
+
+/* @group contents */
+
+	.jqueryadios_button,
+	.jqueryadios_title {
+		color: #fff;
+		font-size: 18px;
+		line-height: 22px;
+		margin: 8px 0 8px;
+	}
+
+	.jqueryadios_message {
+		font-size: 16px;
+		line-height: 20px;
+		margin: 0 0 16px;
+	}
+
+/* @end */
+
+/* @group buttons */
+
+	.jqueryadios_buttons {
+
+		/* standard properties */
+		height: 42px;
+
+		/* css3 properties */
+		display: -webkit-box;
+		-webkit-box-orient: horizontal;
+		display: -moz-box;
+		-moz-box-orient: horizontal;
+		display: box;
+		box-orient: horizontal;
+
+	}
+
+	.jqueryadios_button {
+
+		/* standard properties */
+		color: #fff !important;
+		display: block;
+		font-size: 20px;
+		font-weight: bold;
+		height: 40px;
+		line-height: 40px;
+		margin: 0 5px;
+		text-align: center;
+		width: 0;
+
+		/* css3 properties */
+		background-image: -webkit-gradient(
+			linear,
+			left top, 
+			left bottom, 
+			color-stop(0, rgba(143,153,175,0.8)), 
+			color-stop(.5, rgba(50,55,80,0.8)), 
+			color-stop(.5, rgba(20,35,65,0.8)), 
+			color-stop(1, rgba(40,45,75,0.8))
+		);
+
+		-webkit-border-radius: 6px;
+		-webkit-box-flex: 1;
+		-moz-box-flex: 1;
+		box-flex: 1;
+
+		-moz-box-shadow: 
+			0px 0px 1px 1px rgba(0,0,0,0.3), 
+			0px 1px 0px 0px rgba(0,0,0,0.3), 
+			0px 2px 0px 0px rgba(80,105,160,0.3); 
+		-webkit-box-shadow: 
+			0px 0px 1px 1px rgba(0,0,0,0.3), 
+			0px 1px 0px 0px rgba(0,0,0,0.3), 
+			0px 2px 0px 0px rgba(80,105,160,0.3); 
+		box-shadow: 
+			0px 0px 1px 1px rgba(0,0,0,0.3), 
+			0px 1px 0px 0px rgba(0,0,0,0.3), 
+			0px 2px 0px 0px rgba(80,105,160,0.3); 
+
+	}
+
+	.jqueryadios_buttons :first-child {
+		margin-left: 0;
+	}
+
+	.jqueryadios_buttons :last-child {
+		margin-right: 0;
+	}
+
+	.jqueryadios_button:hover {
+		text-decoration: none;
+	}
+
+	.jqueryadios_button_highlighted {
+		background-image: -webkit-gradient(
+			linear,
+			left top, 
+			left bottom, 
+			color-stop(0, rgba(214,222,232,0.8)), 
+			color-stop(.5, rgba(113,115,141,0.8)), 
+			color-stop(.5, rgba(80,88,128,0.8)), 
+			color-stop(1, rgba(102,111,136,0.8))
+		);
+	}
+		
+/* @end */

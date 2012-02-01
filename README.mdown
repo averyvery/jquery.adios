@@ -1,0 +1,26 @@
+# jQuery Adios
+
+Fake iOS-style notifications with JS and CSS. View the index.html for examples.
+
+## Calling
+
+	$.fn.adios({ ... }); // create a notification immediately
+	$('a').adios({ ... }); // create a notification on click
+	$.fn.adios.close(); // closes an open notification
+
+## Options (all are optional)
+
+- <code>title</code> - the title of your notification
+- <code>message</code> - the message of your notification
+- <code>cancel_click</code> - if you're calling adios with a DOM element, this will preventDefault the click behavior
+- <code>shade_callback</code> - fired when a user tap/clicks the background shadow
+- <code>buttons</code> - an array of buttons. Each button is a literal object with has the following optional values:
+	* <code>title</code> - button text
+	* <code>classname</code> - class to add to the button. The default "highlighted" button class is <code>jqueryadios_button_highlighted</code>
+	* <code>callback</code> 
+	* <code>href</code>
+
+
+## Still to come
+
+- Even though this is meant to simulate a very specific browser behavior, I intend to round out the CSS3 features with better vendor prefixes/browser support.
