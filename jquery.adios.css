@@ -175,6 +175,10 @@
 		-webkit-animation-duration: 0.45s;
 		-webkit-animation-iteration-count: 1;
 		-webkit-transform: scale(1) translateZ(0);
+		animation-name: bounce;
+		animation-duration: 0.45s;
+		animation-iteration-count: 1;
+		ansform: scale(1) translateZ(0);
 	}
 	
 /* @end */
