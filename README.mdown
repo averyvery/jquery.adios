@@ -1,4 +1,4 @@
-# jQuery Adios 0.3
+# jQuery Adios 0.3.1
 
 Fake iOS-style notifications with JS and CSS. View the index.html for examples.
 

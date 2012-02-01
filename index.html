@@ -72,12 +72,12 @@ $.fn.adios({
 });</pre>
 
 			<h3>Binding on click</h3>
-			<p><a href="#" class="adioslink">Click to show notification</a></p>
+			<p><a href="#" class="adiosclick">Execute, then click to show notification</a></p>
 			<pre>
-$('a.adioslink').adios({ 
+// &lt;a href="#" class="adiosclick"&gt;Execute, then click to show notification&lt;/a&gt;
+$('a.adiosclick').adios({ 
 	title : 'Notification title', 
 	cancel_click : true,
-	message : '',
 	buttons : [
 		{
 			callback : $.fn.adios.close,
@@ -86,6 +86,24 @@ $('a.adioslink').adios({
 	]
 });</pre>
 
+			<h3>Binding on click using data- attributes</h3>
+			<p>
+				<a href="#" 
+					class="adiosdata" 
+					data-title="Notification title" 
+					data-cancel_click="true" 
+					data-buttons='[{"title" : "OK", "callback" : "$.fn.adios.close"}]'>
+						Execute, then click to show notification
+					</a>
+				</p>
+			<pre>
+// &lt;a href="#" 
+//   class="adiosdata" 
+//   data-title="Notification title" 
+//   data-buttons='[{"title" : "OK", "callback" : "$.fn.adios.close"}]'&gt;
+//     Execute, then click to show notification
+// &lt;/a&gt;
+$('a.adiosdata').adios({cancel_click : true});</pre>
 			</section>
 		</div>
 

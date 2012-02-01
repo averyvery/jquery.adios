@@ -7,7 +7,7 @@
  * Uses the same license as jQuery, see:
  * http://jquery.org/license
  *
- * @version 0.3
+ * @version 0.3.1
  *
  */
 
@@ -123,8 +123,16 @@
 					opacity : 0.01,
 					position : supports_fixed ? 'fixed' : 'absolute'
 				});
-				this.options.shade_callback && this.$shade.bind('click', this.options.shade_callback); 
+				this.bindCallback(this.$shade, this.options.shade_callback);
 				this.$shade.appendTo('body');
+			},
+
+			bindCallback : function($object, callback){
+				if(callback){
+					var is_function = typeof callback === 'function',
+						callback_prepared = is_function ? callback : eval(callback); 
+					$object.bind('click', callback_prepared);
+				}
 			},
 
 			createBox : function(){
@@ -155,7 +163,7 @@
 				$button = $(html, attributes);
 				$button.addClass(classname);
 				$button.appendTo(this.$buttons);
-				button.callback && $button.bind('click', button.callback);
+				this.bindCallback($button, button.callback);
 			},
 			
 			setPositions : function(){
@@ -207,11 +215,18 @@
 	};
 
 	$.fn.adios = function(config) {
-		var createNotification = function(event){
-				config && config.cancel_click && event.preventDefault();
-				$.fn.adios.create(config);
+		var $this = $(this),
+			createNotification = function(event){
+				var options = {};
+				$.extend(
+					options, 
+					$this.data(), 
+					config
+				);
+				options.cancel_click && event.preventDefault();
+				$.fn.adios.create(options);
 			};
-		this[0] ? $(this).click(createNotification) : createNotification();
+		this[0] ? $this.click(createNotification) : createNotification();
 	}
 
 	$.fn.adios.create = function(config) {
