@@ -72,16 +72,11 @@
 		background: #0b1b44;
 		background: rgba(11,27,68,0.8);
 		border: 2px solid #b9bcc5;
-		color: #fff;
-		font-family: Helvetica, Arial, sans-serif;
-		-webkit-font-smoothing: antialiased;
 		font-size: 16px;
 		margin: 0 25px;
 		max-width: 270px;
 		overflow: hidden;
 		position: relative;
-		text-shadow: 0px -1px 0px #000;
-		text-align: center;
 		top: 50%;
 		padding: 5px;
 
@@ -102,11 +97,15 @@
 
 	}
 
+	.jqueryadios_box * {
+		color: #fff !important;
+		font-family: Helvetica, Arial, sans-serif !important;
+		-webkit-font-smoothing: antialiased;
+	}
+
 	.jqueryadios_contents {
-		font-size: 16px;
 		padding: 10px 20px 20px;
 		-webkit-font-smoothing: auto;
-		text-align: center;
 	}
 
 /* @end */
@@ -182,18 +181,23 @@
 
 /* @group contents */
 
+	.jqueryadios_title {
+		line-height: 22px !important;
+		margin: 8px 0 8px !important;
+	}
+
 	.jqueryadios_button,
 	.jqueryadios_title {
-		color: #fff;
-		font-size: 18px;
-		line-height: 22px;
-		margin: 8px 0 8px;
+		font-size: 18px !important;
+		font-weight: bold !important;
+		text-shadow: 0px -1px 0px #000 !important;
+		text-align: center !important;
 	}
 
 	.jqueryadios_message {
-		font-size: 16px;
-		line-height: 20px;
-		margin: 0 0 16px;
+		font-size: 16px !important;
+		line-height: 20px !important;
+		margin: 0 0 16px !important;
 	}
 
 /* @end */
@@ -220,15 +224,13 @@
 	.jqueryadios_button {
 
 		/* standard properties */
-		color: #fff !important;
 		display: block;
 		font-size: 20px;
-		font-weight: bold;
 		height: 40px;
-		line-height: 40px;
+		line-height: 40px !important;
 		margin: 0 5px;
 		padding: 0 5px;
-		text-align: center;
+		text-decoration: none !important;
 		width: 0;
 
 		/* css3 properties */
