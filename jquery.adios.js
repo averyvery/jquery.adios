@@ -117,13 +117,14 @@
 			},
 
 			createShade : function(){
-				this.$shade = $('<div class="jqueryadios_shade"></div>').appendTo('body');
+				this.$shade = $('<div class="jqueryadios_shade"></div>');
+				this.options.shade_transparent && this.$shade.addClass('jqueryadios_shade_transparent');
 				this.$shade.css({
 					opacity : 0.01,
 					position : supports_fixed ? 'fixed' : 'absolute'
 				});
-				this.options.shade_transparent && this.$shade.addClass('jqueryadios_shade_transparent');
 				this.options.shade_callback && this.$shade.bind('click', this.options.shade_callback); 
+				this.$shade.appendTo('body');
 			},
 
 			createBox : function(){
