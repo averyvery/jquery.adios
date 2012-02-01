@@ -23,6 +23,17 @@ Fake iOS-style notifications with JS and CSS. View the index.html for examples.
 	* <code>callback</code> 
 	* <code>href</code>
 
+You can set options with an object literal, or with data- attributes on the clickable element. 
+Note that any callbacks you specify this way will be <code>eval</code>ed:
+
+<pre>
+	&lt;a href="#" 
+		class="adiosdata" 
+		data-title="Notification title" 
+		data-buttons='[{"title" : "OK", "callback" : "$.fn.adios.close"}]'&gt;
+			Click me
+	&lt;/a&gt;
+</pre>
 
 ## Still to come
 
