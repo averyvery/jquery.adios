@@ -38,6 +38,10 @@
 
 	}
 
+	.jqueryadios_shade_transparent {
+		background: transparent;
+	}
+
 	.jqueryadios_shine {
 
 		/* standard properties */

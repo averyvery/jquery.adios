@@ -2,6 +2,8 @@
 
 Fake iOS-style notifications with JS and CSS. View the index.html for examples.
 
+<img src="https://github.com/averyvery/jquery.adios/raw/master/assets/images/screenshot.png" />
+
 ## Calling
 
 	$.fn.adios({ ... }); // create a notification immediately
