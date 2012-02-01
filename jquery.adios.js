@@ -7,7 +7,7 @@
  * Uses the same license as jQuery, see:
  * http://jquery.org/license
  *
- * @version 0.2
+ * @version 0.3
  *
  */
 
@@ -133,7 +133,6 @@
 				box_html += this.options.message ? '<p class="jqueryadios_message">' + this.options.message + '</p>' : '';
 				box_html += '</div></div>';
 				this.$box = $(box_html).appendTo(this.$shade);
-				this.$box.fadeTo(0, 0.01);
 			},
 
 			addButtons : function(){
@@ -187,17 +186,15 @@
 
 			open : function(){
 				this.blockUI();
-				this.$shade.fadeTo(100, 1);
+				this.$shade.fadeTo(300, 1);
 				this.$box.addClass('jqueryadios_box_bounce');
-				this.$box.fadeTo(100, 1);
 				this.setPositions();
 			},
 
 			close : function(event){
 				event && event.preventDefault && event.preventDefault();
 				this.unblockUI();
-				this.$box.removeClass('show');
-				this.$shade.fadeOut(100, this.$shade.remove);
+				this.$shade.fadeOut(200, this.$shade.remove);
 				$(window).unbind('scroll.jqueryadios resize.jqueryadios');
 			},
 		
