@@ -7,7 +7,7 @@
  * Uses the same license as jQuery, see:
  * http://jquery.org/license
  *
- * @version 0.3.1
+ * @version 0.4
  *
  */
 
@@ -15,33 +15,53 @@
 	
 	'use strict';
 
-	var checkFixedSupport = function(){
+	var $document_reference = $(document),
+		$window_reference = $(window),
+
+		checkFixedSupport = function(){
 			var supports_fixed = supportsFixedPositioning();
 			supports_fixed = hasBadFixedSupport(navigator.userAgent) ? false : supports_fixed;
 			return supports_fixed;
 		},
 
 		supportsFixedPositioning = function(){
+
+			// vars
 			var test	= document.createElement('div'),
 				old_css_text,
 				return_data,
 				control = test.cloneNode(false),
 				fake = false,
-				root = document.body || (function () {
+				root,
+
+				// functions
+				createBody = function(){
 					fake = true;
 					return document.documentElement.appendChild(document.createElement('body'));
-				}());
-			old_css_text = root.style.cssText;
-			root.style.cssText = 'padding:0;margin:0';
-			test.style.cssText = 'position:fixed;top:42px';
-			root.appendChild(test);
-			root.appendChild(control);
-			return_data = test.offsetTop !== control.offsetTop;
-			root.removeChild(test);
-			root.removeChild(control);
-			root.style.cssText = old_css_text;
-			fake && document.documentElement.removeChild(root);
+				},
+				setup = function(){
+					old_css_text = root.style.cssText;
+					root.style.cssText = 'padding:0;margin:0';
+					test.style.cssText = 'position:fixed;top:42px';
+					root.appendChild(test);
+					root.appendChild(control);
+				}, 
+				breakdown = function(){
+					root.removeChild(test);
+					root.removeChild(control);
+					root.style.cssText = old_css_text;
+					fake && document.documentElement.removeChild(root);
+				},
+				offsetsAreUnequal = function(){
+					return test.offsetTop !== control.offsetTop;
+				};
+				
+			root = document.body || createBody();
+			setup();
+			return_data = offsetsAreUnequal();
+			breakdown();
 			return return_data;
+
 		},
 
 		hasBadFixedSupport = function(user_agent){
@@ -136,10 +156,16 @@
 			},
 
 			createBox : function(){
-				var box_html = '<div class="jqueryadios_box"><div class="jqueryadios_shine"></div><div class="jqueryadios_content">';
-				box_html += this.options.title ? '<h2 class="jqueryadios_title">' + this.options.title + '</h2>' : '';
-				box_html += this.options.message ? '<p class="jqueryadios_message">' + this.options.message + '</p>' : '';
-				box_html += '</div></div>';
+				var header_html = this.options.title ? '<h2 class="jqueryadios_title">' + this.options.title + '</h2>' : '',
+					message_html = this.options.message ? '<p class="jqueryadios_message">' + this.options.message + '</p>' : '',
+					box_html = 
+					'<div class="jqueryadios_box">\
+						<div class="jqueryadios_shine"></div>\
+						<div class="jqueryadios_content">' +
+							header_html +
+							message_html +
+						'</div>\
+					</div>';
 				this.$box = $(box_html).appendTo(this.$shade);
 			},
 
@@ -167,11 +193,17 @@
 			},
 			
 			setPositions : function(){
+				var window_height = window.innerHeight ? window.innerHeight : $(window).height(),
+					window_width = $window_reference.width(),
+					window_scroll = $window_reference.scrollTop();
 				if(!supports_fixed){
-					this.$shade.get(0).style.top = $(window).scrollTop() + 'px';
+					this.$shade.css({
+						top : window_scroll,
+						height : window_height
+					});
 				}
-				var top = ($(window).height() / 2) - (this.$box.outerHeight() / 2),
-					left = ($(window).width() / 2) - (this.$box.outerWidth() / 2) - 25;
+				var top = (window_height / 2) - (this.$box.outerHeight() / 2),
+					left = (window_width / 2) - (this.$box.outerWidth() / 2) - 25;
 				this.$box.get(0).style.top = top + 'px';
 				this.$box.get(0).style.left = left + 'px';
 			},
@@ -181,11 +213,11 @@
 		/* @group show and hide */
 
 			blockUI : function(){
-				$(document).bind('touchmove.jqueryadios', this.doNothing);
+				$document_reference.bind('touchmove.jqueryadios', this.doNothing);
 			},
 
 			unblockUI : function(){
-				$(document).unbind('touchmove.jqueryadios');
+				$document_reference.unbind('touchmove.jqueryadios');
 			},
 
 			doNothing : function(event){
@@ -203,7 +235,7 @@
 				event && event.preventDefault && event.preventDefault();
 				this.unblockUI();
 				this.$shade.fadeOut(200, this.$shade.remove);
-				$(window).unbind('scroll.jqueryadios resize.jqueryadios');
+				$window_reference.unbind('scroll.jqueryadios resize.jqueryadios');
 			},
 		
 		/* @end */

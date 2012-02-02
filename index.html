@@ -28,6 +28,10 @@
 			body {
 				height: 2500px;
 			}
+			h3 {
+				line-height: 22px;
+			
+			}
 		</style>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script type="text/javascript" src="jquery.adios.js"></script>
@@ -42,7 +46,15 @@
 
 			<h3>Basic call</h3>
 			<pre>
-$.fn.adios();</pre>
+$.fn.adios({
+	title : 'Hello, world.',
+	buttons : [
+		{
+			callback : $.fn.adios.close,
+			title : 'Oh <em>hi</em> there.'
+		}
+	]
+});</pre>
 
 
 			<h3>All options</h3>
