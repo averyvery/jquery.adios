@@ -187,6 +187,7 @@
 				$button.addClass(classname);
 				$button.appendTo(this.$buttons);
 				this.bindCallback($button, button.callback);
+				button.href && $button.click($.fn.adios.close);
 			},
 			
 			setPositions : function(){
