@@ -7,7 +7,7 @@
  * Uses the same license as jQuery, see:
  * http://jquery.org/license
  *
- * @version 0.4
+ * @version 0.4.1
  *
  */
 
@@ -178,22 +178,19 @@
 			},
 
 			addButton : function(button){
-				var html = button.href ? '<a>' : '<span>',
+				var html = button.href ? '<a href="' + button.href + '">' : '<span>',
 					classname = button.classname ? 'jqueryadios_button ' + button.classname : 'jqueryadios_button',
-					attributes = {
-						href : button.href ? button.href : ''
-					},
 					$button;
 				html += button.title ? button.title : '';
 				html += button.href ? '</a>' : '</span>';
-				$button = $(html, attributes);
+				$button = $(html);
 				$button.addClass(classname);
 				$button.appendTo(this.$buttons);
 				this.bindCallback($button, button.callback);
 			},
 			
 			setPositions : function(){
-				var window_height = window.innerHeight ? window.innerHeight : $(window).height(),
+				var window_height = window.innerHeight ? window.innerHeight : $window_reference.height(),
 					window_width = $window_reference.width(),
 					window_scroll = $window_reference.scrollTop();
 				if(!supports_fixed){
