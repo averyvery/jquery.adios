@@ -20,23 +20,17 @@ Fake iOS-style notifications with JS and CSS. View the index.html for examples.
 - <code>buttons</code> - an array of buttons. Each button is an object literal with has the following optional values:
 	* <code>title</code> - button text
 	* <code>classname</code> - class to add to the button. The default "highlighted" button class is <code>jqueryadios_button_highlighted</code>
-	* <code>callback</code> 
+	* <code>callback</code>
 	* <code>href</code>
 
-You can set options with an object literal, or with data- attributes on the clickable element. 
+You can set options with an object literal, or with data- attributes on the clickable element.
 Note that any callbacks you specify this way will be <code>eval</code>ed:
 
 <pre>
-	&lt;a href="#" 
-		class="adiosdata" 
-		data-title="Notification title" 
+	&lt;a href="#"
+		class="adiosdata"
+		data-title="Notification title"
 		data-buttons='[{"title" : "OK", "callback" : "$.fn.adios.close"}]'&gt;
 			Click me
 	&lt;/a&gt;
 </pre>
-
-## Still to come
-
-- SCSS version of the stylesheet
-- Better equal-width buttons
-- Option to set notification width
